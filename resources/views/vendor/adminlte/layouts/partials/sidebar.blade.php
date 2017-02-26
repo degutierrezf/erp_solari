@@ -18,25 +18,52 @@
             </div>
         @endif
 
-        <!-- search form (Optional) -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="{{ trans('adminlte_lang::message.search') }}..."/>
-              <span class="input-group-btn">
-                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-              </span>
-            </div>
-        </form>
-        <!-- /.search form -->
-
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-            <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
+            <li class="header">PRINCIPAL</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
-            <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
             <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.multilevel') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-user'></i> <span>Clientes</span> <i class="fa fa-angle-right pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="/Clientes">Nuevo Cliente</a></li>
+                    <li><a href="/Clientes/Listar">Listar Clientes</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-industry'></i> <span>Proveedores</span> <i class="fa fa-angle-right pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Nuevo Proveedor</a></li>
+                    <li><a href="#">Listar Proveedores</a></li>
+                </ul>
+            </li>
+            <li class="header">FACTURA / PAGOS</li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-dollar'></i> <span>De Clientes</span> <i class="fa fa-angle-right pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Registrar Factura</a></li>
+                    <li><a href="#">Registar Pago de Factura</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-dollar'></i> <span>A Proveedores</span> <i class="fa fa-angle-right pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Registrar Factura</a></li>
+                    <li><a href="#">Registar Pago de Factura</a></li>
+                </ul>
+            </li>
+            <li class="header">INFORMES</li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-file-pdf-o'></i> <span>Informes</span> <i class="fa fa-angle-right pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="#">Pagos Realizados</a></li>
+                    <li><a href="#">Pagos Recibidos</a></li>
+                    <li><a href="#">Pagos Pendientes de Hacer</a></li>
+                    <li><a href="#">Pagos Pendientes de Recibir</a></li>
+                </ul>
+            </li>
+            <li class="header">SISTEMA</li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-gear'></i> <span>Configuración</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
                     <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>

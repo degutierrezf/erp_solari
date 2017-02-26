@@ -15,8 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('Clientes', 'ClientesController@index');
-Route::get('Clientes/Listar', 'ClientesController@listar');
+Route::get('Clientes', 'ClientesController@Index');
+Route::get('Clientes/Listar', 'ClientesController@Listar');
+Route::post('Clientes/GuardarNuevo', 'ClientesController@GuardarNuevo');
+
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {

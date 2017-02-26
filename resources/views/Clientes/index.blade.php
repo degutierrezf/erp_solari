@@ -1,11 +1,11 @@
 @extends('adminlte::layouts.app')
 
 @section('htmlheader_title')
-    Nuevo Incidente
+    Nuevo Cliente
 @endsection
 
 @section('contentheader_title')
-    INCIDENTES - SAOPSE - SACYR OPERACIONES Y SERVICIOS CHILE
+    ERP - SISTEMA DE CONTROL - CLIENTES -
 @endsection
 
 @section('main-content')
@@ -13,112 +13,96 @@
     <div class="row">
         <div class="col-md-10">
             <!-- Horizontal Form -->
-            <div class="box box-info">
+            <div class="box box-success">
 
                 <div class="box-header with-border">
-                    <h3 class="box-title">REGISTRO DE NUEVO INCIDENTE</h3>
+                    <h3 class="box-title">REGISTRO DE NUEVO CLIENTE</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form class="form-horizontal" name="form" action="{{ url('Incidentes/GuardarNuevo') }}" role="form" method="POST">
+
+                <form class="form-horizontal" name="form" action="{{ url('Clientes/GuardarNuevo') }}" role="form"
+                      method="POST">
 
                     <div class="box-body">
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1" class="col-sm-3 control-label">Seleccione la Ruta:</label>
-                            <div class="col-sm-8">
+                            <label for="exampleInputEmail1" class="col-sm-2 control-label">RUT:</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control pull-right" name="rut"  maxlength="12" placeholder="00.000.000-0" required>
+                            </div>
 
+                            <label for="exampleInputEmail1" class="col-sm-2 control-label">Fecha Ingreso:</label>
+                            <div class="col-sm-4">
+                                <input type="date" class="form-control pull-right" name="fecha">
                             </div>
                         </div>
 
-                        <div class="form-group" >
-                            <label for="exampleInputEmail1" class="col-sm-3 control-label">Fecha del Incidente:</label>
-                            <div class="col-sm-8">
-                                <input type="date" class="form-control pull-right" name="fecha" required>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="col-sm-2 control-label">Razón Social:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control pull-right" name="r_soc" maxlength="55" placeholder="Nombre o Razón Social del Cliente" required>
                             </div>
                         </div>
 
-                        <div class="form-group" >
-                            <label for="exampleInputEmail1" class="col-sm-3 control-label">Hora del Incidente:</label>
-                            <div class="col-sm-8">
-                                <input type="time" class="form-control pull-right" name="hora">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="col-sm-2 control-label">Giro:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control pull-right" name="giro" placeholder="Giro del Cliente" maxlength="55">
                             </div>
                         </div>
 
-                        <div class="form-group" >
-                            <label for="exampleInputEmail1" class="col-sm-3 control-label">PK de la Ruta:</label>
-                            <div class="col-sm-1">
-                                <input type="text" class="form-control pull-right" name="pk1">
+                        <hr>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="col-sm-2 control-label">Dirección:</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control pull-right" name="direccion" maxlength="55" placeholder="Calle, Número, Depto, Población">
                             </div>
-                            <div class="col-sm-1">
-                                <input type="text" class="form-control pull-right" name="pk2">
-                            </div>
-                        </div>
-
-
-                        <div class="form-group" >
-                            <label for="exampleInputEmail1" class="col-sm-3 control-label">Calzada:</label>
-                            <div class="col-sm-8">
-                                <input type="radio" name="r1" value="Izquierda" class="minimal" checked> Izquierda <br>
-                                <input type="radio" name="r1" value="Derecha" class="minimal"> Derecha <br>
-                                <input type="radio" name="r1" value="Ambas" class="minimal"> Ambas
+                            <label for="exampleInputEmail1" class="col-sm-1 control-label">Ciudad:</label>
+                            <div class="col-sm-4">
+                                <select class="form-control pull-right" name="comunas">
+                                    <?php  foreach ($comunas as $cs) { ?>
+                                    <option class="form-control pull-right" value="<?php echo $cs->id_comunas ?>"><?php echo $cs->comunas ?></option>
+                                    <?php }
+                                    ?>
+                                </select>
                             </div>
                         </div>
 
-                        <div class="form-group" >
-                            <label for="exampleInputEmail1" class="col-sm-3 control-label">Dirección:</label>
-                            <div class="col-sm-8">
-                                <input type="radio" name="r2" value="Norte - Sur" class="minimal" checked> Norte - Sur <br>
-                                <input type="radio" name="r2" value="Sur - Norte" class="minimal"> Sur - Norte <br>
-                                <input type="radio" name="r2" value="Ambas" class="minimal"> Ambas
-                            </div>
-                        </div>
-
-                        <div class="form-group" >
-                            <label for="exampleInputEmail1" class="col-sm-3 control-label">Tipo de Incidente:</label>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="col-sm-2 control-label">Teléfono:</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control pull-right" name="tipo">
+                                <input type="number" min="0" class="form-control pull-right" name="telefono" placeholder="900000000">
+                            </div>
+
+                            <label for="exampleInputEmail1" class="col-sm-2 control-label">Correo Electrónico:</label>
+                            <div class="col-sm-5">
+                                <input type="email" class="form-control pull-right" name="correo" maxlength="55" placeholder="Correo Electrónico de Cliente">
                             </div>
                         </div>
+                        <hr>
 
                         <div class="form-group" >
-                            <label for="exampleInputEmail1" class="col-sm-3 control-label">Descripción del Incidente:</label>
-                            <div class="col-sm-8">
-                                <textarea class="form-control" name="desc" rows="5" placeholder="Descripción del Incidente hasta 500 Caracteres ..." required></textarea>
+                            <label for="exampleInputEmail1" class="col-sm-2 control-label">Observaciones al Cliente:</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" name="obs_cli" rows="5" placeholder="Observaciones al Cliente, hasta 1500 Caracteres ..."></textarea>
                             </div>
                         </div>
-
-                        <div class="form-group" >
-                            <label for="exampleInputEmail1" class="col-sm-3 control-label">Nota del Incidente:</label>
-                            <div class="col-sm-8">
-                                <textarea class="form-control" name="nota" rows="3" placeholder="Nota del Incidente hasta 200 Caracteres ..."></textarea>
-                            </div>
-                        </div>
-
-                        <div class="form-group" >
-                            <label for="exampleInputEmail1" class="col-sm-3 control-label">Daños:</label>
-                            <div class="col-sm-8">
-                                <input type="radio" name="r3" value="Si" class="minimal" checked> SI <br>
-                                <input type="radio" name="r3" value="No" class="minimal"> NO
-                            </div>
-                        </div>
-
 
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-
-                    </div><!-- /.box-body -->
-                    <div class="box-footer">
-                        <button type="reset" class="btn btn-default">Limpiar Formulario</button>
-                        <button name="boton" type="submit" class="btn btn-info pull-right">Ingresar Incidente</button>
-                    </div><!-- /.box-footer -->
+                        <div class="box-footer">
+                            <button type="reset" class="btn btn-default">Limpiar Formulario</button>
+                            <button name="boton" type="submit" class="btn btn-success pull-right">Registrar Cliente</button>
+                        </div>
+                    </div>
+                </form>
 
             </div>
-            </form><!-- /.box -->
         </div>
 
         <div class="col-md-2">
-            <a class="btn btn-app btn" href="/Incidentes/Mostrar">
-                <i class="fa fa-list-ul"></i> Ver lista de Incidentes
+            <a class="btn btn-app btn" href="/Clientes/Listar">
+                <i class="fa fa-list-ul"></i> Ver lista de Clientes
             </a>
         </div>
     </div>
