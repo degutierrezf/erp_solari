@@ -32,15 +32,15 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-industry'></i> <span>Proveedores</span> <i class="fa fa-angle-right pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Nuevo Proveedor</a></li>
-                    <li><a href="#">Listar Proveedores</a></li>
+                    <li><a href="/Proveedores">Nuevo Proveedor</a></li>
+                    <li><a href="/Proveedores/Listar">Listar Proveedores</a></li>
                 </ul>
             </li>
             <li class="header">FACTURA / PAGOS</li>
             <li class="treeview">
                 <a href="#"><i class='fa fa-dollar'></i> <span>De Clientes</span> <i class="fa fa-angle-right pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Registrar Factura</a></li>
+                    <li><a href="/Clientes/DTE">Registrar Factura</a></li>
                     <li><a href="#">Registar Pago de Factura</a></li>
                 </ul>
             </li>

@@ -17,7 +17,15 @@ Route::get('/', function () {
 
 Route::get('Clientes', 'ClientesController@Index');
 Route::get('Clientes/Listar', 'ClientesController@Listar');
+Route::get('Clientes/DTE', 'ClientesController@emitir_dte');
 Route::post('Clientes/GuardarNuevo', 'ClientesController@GuardarNuevo');
+
+Route::get('Proveedores', 'ProveedoresController@Index');
+Route::get('Proveedores/Listar', 'ProveedoresController@Listar');
+Route::post('Proveedores/GuardarNuevo', 'ProveedoresController@GuardarNuevo');
+
+
+Route::post('Clientes/EmitirDTE', 'dteController@GuardarEmitido');
 
 
 Route::group(['middleware' => 'auth'], function () {

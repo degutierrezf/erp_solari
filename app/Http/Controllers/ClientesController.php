@@ -71,5 +71,26 @@ class ClientesController extends Controller
         return back();
     }
 
+    public function emitir_dte(){
+
+        $tipodoc = DB::table('tipos_documento')->get();
+
+        $clientes = Clientes::get();
+        $activos = Clientes::where('estado', 1)->count();
+        $inactivos = Clientes::where('estado', 2)->count();
+        $otros = Clientes::where('estado', 3)->count();
+        $total = Clientes::count();
+
+        return view('Clientes.emitir_dte', [
+            'clientes' => $clientes,
+            'act' => $activos,
+            'ina' => $inactivos,
+            'otros' =>$otros,
+            'total' => $total,
+            'tipo_doc' => $tipodoc
+        ]);
+
+    }
+
 
 }
