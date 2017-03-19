@@ -40,14 +40,14 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="col-sm-2 control-label">Razón Social:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control pull-right" name="r_soc" maxlength="55" placeholder="Nombre o Razón Social del Cliente" required>
+                                <input type="text" class="form-control pull-right" name="r_soc" maxlength="55" placeholder="Nombre o Razón Social del Proveedor" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="col-sm-2 control-label">Giro:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control pull-right" name="giro" placeholder="Giro del Cliente" maxlength="55">
+                                <input type="text" class="form-control pull-right" name="giro" placeholder="Giro del Proveedor" maxlength="55">
                             </div>
                         </div>
 
@@ -76,15 +76,15 @@
 
                             <label for="exampleInputEmail1" class="col-sm-2 control-label">Correo Electrónico:</label>
                             <div class="col-sm-5">
-                                <input type="email" class="form-control pull-right" name="correo" maxlength="55" placeholder="Correo Electrónico de Cliente">
+                                <input type="email" class="form-control pull-right" name="correo" maxlength="55" placeholder="Correo Electrónico de Proveedor">
                             </div>
                         </div>
                         <hr>
 
                         <div class="form-group" >
-                            <label for="exampleInputEmail1" class="col-sm-2 control-label">Observaciones al Cliente:</label>
+                            <label for="exampleInputEmail1" class="col-sm-2 control-label">Observaciones al Proveedor:</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" name="obs_cli" rows="5" placeholder="Observaciones al Cliente, hasta 1500 Caracteres ..."></textarea>
+                                <textarea class="form-control" name="obs_cli" rows="5" placeholder="Observaciones al Proveedor, hasta 1500 Caracteres ..."></textarea>
                             </div>
                         </div>
 

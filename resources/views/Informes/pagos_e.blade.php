@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-aqua"><i class="fa fa-industry"></i></span>
+                <span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">N° Clientes</span>
@@ -26,7 +26,7 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-red"><i class="fa fa-industry"></i></span>
+                <span class="info-box-icon bg-red"><i class="fa fa-users"></i></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">N° Clientes Activos</span>
@@ -43,7 +43,7 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-green"><i class="fa fa-industry"></i></span>
+                <span class="info-box-icon bg-green"><i class="fa fa-users"></i></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">N° Clientes Inactivos</span>
@@ -56,7 +56,7 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-yellow"><i class="fa fa-industry"></i></span>
+                <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">N° Clientes OBS</span>
@@ -71,7 +71,7 @@
 
 
     <a href="/Clientes">
-        <button type="button" class="btn btn-primary btn-xs" data-toggle="tooltip"
+        <button type="button" class="btn btn-success btn-xs" data-toggle="tooltip"
                 title="Registrar un nuevo Cliente en ERP">
             <i class="fa fa-industry"></i> Registrar Nuevo Cliente
         </button>

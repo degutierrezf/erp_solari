@@ -76,6 +76,8 @@ class ClientesController extends Controller
         $num_doc = $_POST['n_doc'];
         $valor_doc = $_POST['max_total'];
         $obs = $_POST['obs'];
+        $fecha_cobro = $_POST['fecha_cobro'];
+        $banca = $_POST['banco'];
         $dte_emitidos_id_dte_e = $_POST['id_fact'];
         $tipos_docs_pago_id_tipo_docs_p = $_POST['tipo'];
 
@@ -84,6 +86,8 @@ class ClientesController extends Controller
             'num_doc' => $num_doc,
             'valor_doc' => $valor_doc,
             'obs' => $obs,
+            'fecha_cobro' => $fecha_cobro,
+            'plaza' => $banca,
             'dte_emitidos_id_dte_e' => $dte_emitidos_id_dte_e,
             'tipos_docs_pago_id_tipo_docs_p' => $tipos_docs_pago_id_tipo_docs_p
         ]);

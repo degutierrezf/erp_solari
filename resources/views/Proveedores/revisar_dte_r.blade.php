@@ -223,7 +223,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1" class="col-sm-3 control-label">Total</label>
+                                <label for="exampleInputEmail1" class="col-sm-3 control-label">$ Total</label>
                                 <div class="col-sm-4">
                                     <input class="form-control pull-right" id="max_total" type="number" min="1"
                                            name="max_total" required>
@@ -258,7 +258,7 @@
                                     <select class="form-control pull-right" name="banco">
                                         <?php  foreach ($bancos as $bc) { ?>
                                         <option class="form-control pull-right"
-                                                value="<?php echo $bc->id_banco ?>"><?php echo $bc->bancos ?></option>
+                                                value="<?php echo $bc->bancos ?>"><?php echo $bc->bancos ?></option>
                                         <?php }
                                         ?>
                                     </select>
