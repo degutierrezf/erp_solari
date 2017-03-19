@@ -41,32 +41,32 @@
                 <a href="#"><i class='fa fa-dollar'></i> <span>De Clientes</span> <i class="fa fa-angle-right pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="/Clientes/DTE">Registrar Factura</a></li>
-                    <li><a href="#">Registar Pago de Factura</a></li>
+                    <li><a href="/Clientes/DTEs">Registar Pago de Factura</a></li>
                 </ul>
             </li>
             <li class="treeview">
                 <a href="#"><i class='fa fa-dollar'></i> <span>A Proveedores</span> <i class="fa fa-angle-right pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Registrar Factura</a></li>
-                    <li><a href="#">Registar Pago de Factura</a></li>
+                    <li><a href="/Proveedores/DTE">Registrar Factura</a></li>
+                    <li><a href="/Proveedores/DTEs">Registar Pago de Factura</a></li>
                 </ul>
             </li>
             <li class="header">INFORMES</li>
             <li class="treeview">
                 <a href="#"><i class='fa fa-file-pdf-o'></i> <span>Informes</span> <i class="fa fa-angle-right pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Pagos Realizados</a></li>
-                    <li><a href="#">Pagos Recibidos</a></li>
-                    <li><a href="#">Pagos Pendientes de Hacer</a></li>
-                    <li><a href="#">Pagos Pendientes de Recibir</a></li>
+                    <li><a href="/Informes/PagosRealizados">Pagos Realizados</a></li>
+                    <li><a href="/Informes/PagosRecibidos">Pagos Recibidos</a></li>
+                    <li><a href="/Informes/Pagos_Realizar_Pendientes">Pagos Pendientes de Hacer</a></li>
+                    <li><a href="/Informes/Pagos_Recibir_Pendientes">Pagos Pendientes de Recibir</a></li>
                 </ul>
             </li>
             <li class="header">SISTEMA</li>
             <li class="treeview">
                 <a href="#"><i class='fa fa-gear'></i> <span>Configuración</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
+                    <li><a href="/password/reset">Cambio de Clave</a></li>
+                    <li><a href="#">Modificar IVA</a></li>
                 </ul>
             </li>
         </ul><!-- /.sidebar-menu -->

@@ -211,18 +211,18 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="col-sm-3 control-label">Neto</label>
                                 <div class="col-sm-4">
-                                    <input class="form-control pull-right" type="number"  min="1" name="neto" required>
+                                    <input class="form-control pull-right" id="neto" type="number"  min="1" name="neto" required>
                                 </div>
                                 <label for="exampleInputEmail1" class="col-sm-1 control-label">IVA</label>
                                 <div class="col-sm-4">
-                                    <input class="form-control pull-right" type="number" min="0" name="iva" required>
+                                    <input class="form-control pull-right" id="iva" type="number" min="0" name="iva" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="col-sm-3 control-label">Total</label>
                                 <div class="col-sm-4">
-                                    <input class="form-control pull-right" type="number" min="1" name="total" required>
+                                    <input class="form-control pull-right" id="total" type="number" min="1" name="total" readonly>
                                 </div>
                                 <label for="exampleInputEmail1" class="col-sm-1 control-label">Tipo</label>
                                 <div class="col-sm-4">

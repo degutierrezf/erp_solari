@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 
 use App\Clientes;
 use App\Comunas;
+use App\DTE_E;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use DB;
@@ -19,7 +20,6 @@ class ClientesController extends Controller
 
     public function Index()
     {
-
         $comunas = Comunas::get();
 
         return view('Clientes.index', ['comunas' => $comunas]);
@@ -27,7 +27,6 @@ class ClientesController extends Controller
 
     public function Listar()
     {
-
         $clientes = Clientes::get();
         $activos = Clientes::where('estado', 1)->count();
         $inactivos = Clientes::where('estado', 2)->count();
@@ -38,14 +37,13 @@ class ClientesController extends Controller
             'clientes' => $clientes,
             'act' => $activos,
             'ina' => $inactivos,
-            'otros' =>$otros,
+            'otros' => $otros,
             'total' => $total
         ]);
     }
 
     public function GuardarNuevo()
     {
-
         $rut = $_POST['rut'];
         $rs = $_POST['r_soc'];
         $giro = $_POST['giro'];
@@ -71,8 +69,30 @@ class ClientesController extends Controller
         return back();
     }
 
-    public function emitir_dte(){
+    public function GuardarNuevoPago()
+    {
 
+        $fecha = $_POST['fecha'];
+        $num_doc = $_POST['n_doc'];
+        $valor_doc = $_POST['max_total'];
+        $obs = $_POST['obs'];
+        $dte_emitidos_id_dte_e = $_POST['id_fact'];
+        $tipos_docs_pago_id_tipo_docs_p = $_POST['tipo'];
+
+        DB::table('pagos_recibidos')->Insert([
+            'fecha' => $fecha,
+            'num_doc' => $num_doc,
+            'valor_doc' => $valor_doc,
+            'obs' => $obs,
+            'dte_emitidos_id_dte_e' => $dte_emitidos_id_dte_e,
+            'tipos_docs_pago_id_tipo_docs_p' => $tipos_docs_pago_id_tipo_docs_p
+        ]);
+
+        return back();
+    }
+
+    public function emitir_dte()
+    {
         $tipodoc = DB::table('tipos_documento')->get();
 
         $clientes = Clientes::get();
@@ -85,12 +105,25 @@ class ClientesController extends Controller
             'clientes' => $clientes,
             'act' => $activos,
             'ina' => $inactivos,
-            'otros' =>$otros,
+            'otros' => $otros,
             'total' => $total,
-            'tipo_doc' => $tipodoc
+            'tipo_doc' => $tipodoc,
         ]);
-
     }
 
+    public function revisar_dte()
+    {
 
+        $tipo_pag = DB::table('tipos_docs_pago')->get();
+        $bancos = DB::table('bancos')->get();
+
+        $dte_e = DTE_E::join('clientes','clientes_id_cliente','=','id_cliente')
+            ->get();
+
+        return view('Clientes.revisar_dte', [
+            'dte_e' => $dte_e,
+            'tipo_pg' => $tipo_pag,
+            'bancos' => $bancos
+        ]);
+    }
 }
