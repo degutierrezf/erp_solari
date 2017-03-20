@@ -37,6 +37,10 @@ Route::post('Proveedores/EmitirDTE', 'dteController@GuardarRecibido');
 Route::post('Proveedores/EmitirPago', 'ProveedoresController@GuardarNuevoPago');
 
 
+// DETALLE PAGOS
+route::post('DetalleDTERecibidas', 'dteController@DetalleDTE_R');
+route::post('DetalleDTEEmitidas', 'dteController@DetalleDTE_E');
+
 // INFORMES
 Route::get('Informes/PagosRealizados', 'InformesController@pagos_r');
 Route::get('Informes/PagosRecibidos', 'InformesController@pagos_e');

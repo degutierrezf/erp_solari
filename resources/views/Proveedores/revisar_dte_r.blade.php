@@ -140,14 +140,18 @@
                             <center>
                                 <button id="btn_add_dte" type="button" class="btn btn-success btn-xs btn_add_dte"
                                         data-toggle="tooltip"
-                                        title="Agregar DTE">
+                                        title="Agregar Pago DTE">
                                     <i class="fa fa-plus"></i>
                                 </button>
-                                &nbsp &nbsp &nbsp
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="tooltip"
-                                        title="Ver DTE por Cliente">
-                                    <i class="fa fa-eye"></i>
-                                </button>
+
+                                <form action="{{ url('DetalleDTERecibidas') }}" method="post">
+                                    <input type="hidden" name="id_dte" value="{{  $dte -> id_dte_r }}">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <button type="submit" class="btn btn-primary btn-xs" data-toggle="tooltip"
+                                            title="Ver Detalle Pago DTE">
+                                        <i class="fa fa-eye"></i>
+                                    </button>
+                                </form>
                             </center>
                         </td>
                     </tr>
@@ -192,9 +196,11 @@
                         <div class="box-body">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input class="form-control pull-right" id="id_fact" type="hidden" name="id_fact">
+
                             <div class="form-group">
 
                                 <label for="exampleInputEmail1" class="col-sm-3 control-label">N° DOC</label>
+
                                 <div class="col-sm-9">
                                     <input class="form-control pull-right" id="num_doc" type="text" name="num_doc"
                                            disabled>
@@ -204,6 +210,7 @@
                             <div class="form-group">
 
                                 <label for="exampleInputEmail1" class="col-sm-3 control-label">Proveedor</label>
+
                                 <div class="col-sm-9">
                                     <input class="form-control pull-right" id="nom_cliente_s" type="text"
                                            name="nom_cliente"
@@ -213,10 +220,12 @@
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="col-sm-3 control-label">Fecha Pago</label>
+
                                 <div class="col-sm-4">
                                     <input class="form-control pull-right" type="date" name="fecha" required>
                                 </div>
                                 <label for="exampleInputEmail1" class="col-sm-1 control-label">N°Ref:</label>
+
                                 <div class="col-sm-4">
                                     <input class="form-control pull-right" type="number" min="1" name="n_doc" required>
                                 </div>
@@ -224,11 +233,13 @@
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="col-sm-3 control-label">$ Total</label>
+
                                 <div class="col-sm-4">
                                     <input class="form-control pull-right" id="max_total" type="number" min="1"
                                            name="max_total" required>
                                 </div>
                                 <label for="exampleInputEmail1" class="col-sm-1 control-label">Tipo</label>
+
                                 <div class="col-sm-4">
                                     <select class="form-control pull-right" name="tipo">
                                         <?php  foreach ($tipo_pg as $td) { ?>
@@ -242,6 +253,7 @@
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1" class="col-sm-3 control-label">Observaciones</label>
+
                                 <div class="col-sm-9">
                                     <textarea class="form-control pull-right" name="obs" id="" cols="10"
                                               rows="2"></textarea>
@@ -249,11 +261,14 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1" class="col-sm-3 control-label">Fecha Cobro Cheque</label>
+                                <label for="exampleInputEmail1" class="col-sm-3 control-label">Fecha Cobro
+                                    Cheque</label>
+
                                 <div class="col-sm-4">
                                     <input class="form-control pull-right" type="date" name="fecha_cobro" required>
                                 </div>
                                 <label for="exampleInputEmail1" class="col-sm-1 control-label">Plaza</label>
+
                                 <div class="col-sm-4">
                                     <select class="form-control pull-right" name="banco">
                                         <?php  foreach ($bancos as $bc) { ?>
@@ -265,7 +280,8 @@
                                 </div>
                             </div>
 
-                        </div><!-- /.box-body -->
+                        </div>
+                        <!-- /.box-body -->
 
                         <div class="modal-footer">
 

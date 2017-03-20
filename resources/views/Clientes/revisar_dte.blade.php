@@ -140,12 +140,12 @@
                             <center>
                                 <button id="btn_add_dte" type="button" class="btn btn-success btn-xs btn_add_dte"
                                         data-toggle="tooltip"
-                                        title="Agregar DTE">
+                                        title="Registrar Pago DTE">
                                     <i class="fa fa-plus"></i>
                                 </button>
                                 &nbsp &nbsp &nbsp
                                 <button type="button" class="btn btn-primary btn-xs" data-toggle="tooltip"
-                                        title="Ver DTE por Cliente">
+                                        title="Detalle de Pagos DTE">
                                     <i class="fa fa-eye"></i>
                                 </button>
                             </center>
