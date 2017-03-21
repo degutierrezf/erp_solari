@@ -76,7 +76,31 @@ class dteController extends Controller
 
     public function DetalleDTE_E(){
 
-        return view('Dte.detalle_dte_e');
+        $id = $_POST['id_dte'];
+
+        $total = DB::table('dte_emitidos')
+            ->where('id_dte_e','=', $id)
+            ->sum('total');
+
+        $sum = DB::table('pagos_recibidos')
+            ->where('dte_emitidos_id_dte_e','=', $id)
+            ->sum('valor_doc');
+
+        $pend = $total - $sum;
+
+        $DTEs = DB::table('pagos_recibidos')
+            ->join('dte_emitidos', 'id_dte_e', '=','dte_emitidos_id_dte_e')
+            ->join('tipos_docs_pago', 'id_tipo_docs_p', '=', 'tipos_docs_pago_id_tipo_docs_p')
+            ->where('dte_emitidos_id_dte_e','=', $id)
+            ->get();
+
+        return view('Dte.detalle_dte_e', [
+            'dte' => $DTEs,
+            'sum' => $sum,
+            'id_dte' => $id,
+            'total' => $total,
+            'pend' => $pend
+        ]);
     }
 
     public function GuardarRecibido()

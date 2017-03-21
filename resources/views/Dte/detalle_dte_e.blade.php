@@ -5,7 +5,7 @@
 @endsection
 
 @section('contentheader_title')
-    ERP - SISTEMA DE CONTROL - DETALLE DTE -
+    ERP - SISTEMA DE CONTROL - DETALLE DTE PAGO -
 @endsection
 
 @section('main-content')
@@ -13,11 +13,11 @@
     <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
+                <span class="info-box-icon bg-aqua"><i class="fa fa-paste"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">N° Clientes</span>
-                    <span class="info-box-number"></span>
+                    <span class="info-box-text">N° Factura</span>
+                    <span class="info-box-number">{{ $id_dte }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -26,11 +26,11 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-red"><i class="fa fa-user-plus"></i></span>
+                <span class="info-box-icon bg-green"><i class="fa fa-dollar"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">N° Cientes Activos</span>
-                    <span class="info-box-number"></span>
+                    <span class="info-box-text">$ Monto</span>
+                    <span class="info-box-number">$ {{  number_format($total,0,',','.') }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -43,11 +43,11 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-green"><i class="fa fa-user-times"></i></span>
+                <span class="info-box-icon bg-green"><i class="fa fa-dollar"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">N° Clientes Inactivos</span>
-                    <span class="info-box-number"></span>
+                    <span class="info-box-text">$ Pagado</span>
+                    <span class="info-box-number">$ {{  number_format($sum,0,',','.') }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -56,11 +56,11 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-yellow"><i class="fa fa-user-secret"></i></span>
+                <span class="info-box-icon bg-yellow"><i class="fa fa-dollar"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">N° Clientes OBS</span>
-                    <span class="info-box-number"></span>
+                    <span class="info-box-text">$ Pendiente</span>
+                    <span class="info-box-number">$ {{  number_format($pend,0,',','.') }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -72,7 +72,7 @@
     <br><br>
     <div class="info-box">
         <div class="box-header">
-            <h3 class="box-title"></h3>
+            <h3 class="box-title">Detalle de Pagos Factura Nº {{ $id_dte }}</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -90,8 +90,18 @@
                 </tr>
                 </thead>
                 <tbody>
-
-
+                @foreach($dte as $dte)
+                    <tr>
+                        <td>{{  $dte -> num_doc }}</td>
+                        <td>$ {{  number_format($dte -> valor_doc,0,',','.') }}</td>
+                        <td>$ {{  number_format($dte -> total,0,',','.') }}</td>
+                        <td>{{ $dte -> fecha_cobro }}</td>
+                        <td>{{ $dte -> tipos_docs_pago }}</td>
+                        <td>{{ $dte -> plaza }}</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                @endforeach
                 </tbody>
                 <tfoot>
                 <tr>

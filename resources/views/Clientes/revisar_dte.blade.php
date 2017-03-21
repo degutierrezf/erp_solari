@@ -143,11 +143,15 @@
                                         title="Registrar Pago DTE">
                                     <i class="fa fa-plus"></i>
                                 </button>
-                                &nbsp &nbsp &nbsp
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="tooltip"
-                                        title="Detalle de Pagos DTE">
-                                    <i class="fa fa-eye"></i>
-                                </button>
+
+                                <form action="{{ url('DetalleDTEEmitidas') }}" method="post">
+                                    <input type="hidden" name="id_dte" value="{{  $dte -> id_dte_e }}">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <button type="submit" class="btn btn-primary btn-xs" data-toggle="tooltip"
+                                            title="Ver Detalle Pago DTE">
+                                        <i class="fa fa-eye"></i>
+                                    </button>
+                                </form>
                             </center>
                         </td>
                     </tr>
