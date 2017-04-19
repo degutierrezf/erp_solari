@@ -20,7 +20,7 @@ class ClientesController extends Controller
 
     public function Index()
     {
-        $comunas = Comunas::get();
+        $comunas = Comunas::orderBy('comunas')->get();
 
         return view('Clientes.index', ['comunas' => $comunas]);
     }

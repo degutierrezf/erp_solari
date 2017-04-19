@@ -12,7 +12,7 @@ class ProveedoresController extends Controller
 {
     public function Index()
     {
-        $comunas = Comunas::get();
+        $comunas = Comunas::orderBy('comunas')->get();
 
         return view('Proveedores.index', ['comunas' => $comunas]);
     }
