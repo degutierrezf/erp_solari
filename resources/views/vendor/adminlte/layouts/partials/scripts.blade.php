@@ -14,19 +14,21 @@
     ]) !!};
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
-<script src="https://almsaeedstudio.com/themes/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
-<script src="https://almsaeedstudio.com/themes/AdminLTE/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="https://almsaeedstudio.com/themes/AdminLTE/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="https://almsaeedstudio.com/themes/AdminLTE/bootstrap/js/bootstrap.js"></script>
+<script src="https://almsaeedstudio.com/themes/AdminLTE/plugins/datatables/jquery.dataTables.js"></script>
+<script src="https://almsaeedstudio.com/themes/AdminLTE/plugins/datatables/dataTables.bootstrap.js"></script>
 
 <script>
-    $(function () {
+    $(document).ready(function () {
         $("#example1").DataTable();
     });
 </script>
 
 <script>
-    $(this).ready(function () {
-        $(".btn_add_dte").click(function () {
+    //$(document).ready(function () {
+        $(document).on('click', '#btn_add_dte',function (e) {
+
+            $(".btn_add_dte").click(function () {
             $("#add_dte").modal("show");
             $("#id_cliente").val($(this).closest('tr').children()[0].textContent);
             $("#id_fact").val($(this).closest('tr').children()[0].textContent);
