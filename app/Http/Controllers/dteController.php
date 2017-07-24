@@ -17,6 +17,7 @@ class dteController extends Controller
             $num_doc = $_POST['n_doc'];
             $netodoc = $_POST['neto'];
             $iva = $_POST['iva'];
+            $otro_i = $_POST['otro_impuesto'];
             $total = $_POST['total'];
             $obs = $_POST['obs'];
             $estado = 1;
@@ -29,6 +30,7 @@ class dteController extends Controller
                 'num_doc' => $num_doc,
                 'neto_doc' => $netodoc,
                 'iva' => $iva,
+                'otro_imp' => $otro_i,
                 'total' => $total,
                 'obs' => $obs,
                 'pagado' => 0,
@@ -111,6 +113,7 @@ class dteController extends Controller
             $num_doc = $_POST['n_doc'];
             $netodoc = $_POST['neto'];
             $iva = $_POST['iva'];
+            $otro_i = $_POST['otro_impuesto'];
             $total = $_POST['total'];
             $obs = $_POST['obs'];
             $estado = 1;
@@ -123,6 +126,7 @@ class dteController extends Controller
                 'num_doc' => $num_doc,
                 'neto_doc' => $netodoc,
                 'iva' => $iva,
+                'otro_imp' => $otro_i,
                 'total' => $total,
                 'obs' => $obs,
                 'pagado' => 0,
@@ -136,6 +140,31 @@ class dteController extends Controller
         } catch (\Illuminate\Database\QueryException $ex) {
             return redirect('Proveedores/DTE')->with('error', 'ERROR, No se asigno la DTE al Proveedor!');
         }
+
+    }
+
+    public function FichaDTE(){
+
+
+        $id = $_POST['id'];
+        $tipo = $_POST['tipo'];
+
+        if($tipo==1){
+            $cli_pro = DB::table('clientes')
+                ->leftjoin('dte_emitidos', 'id_cliente', '=', 'clientes_id_cliente')
+                ->where('id_cliente', $id)
+                ->get();
+        }else{
+            $cli_pro = DB::table('proveedores')
+                ->leftjoin('dte_recibidos', 'id_proveedor', '=', 'proveedores_id_proveedor')
+                ->where('id_proveedor', $id)
+                ->get();
+        }
+
+        return view('Dte.ficha_dte',
+            [
+            'cli_pro'=>$cli_pro
+        ]);
 
     }
 

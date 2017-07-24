@@ -26,7 +26,7 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">Total Emitido Año</span>
-                    <span class="info-box-number"></span>
+                    <span class="info-box-number">$ {{number_format($total_a,0,',','.')}}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -39,7 +39,7 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">Total Emitido Mes</span>
-                    <span class="info-box-number"></span>
+                    <span class="info-box-number">$ {{number_format($total_m,0,',','.')}}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -56,7 +56,7 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">Total IVA Mes</span>
-                    <span class="info-box-number"></span>
+                    <span class="info-box-number">$ {{number_format($total_i,0,',','.')}}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -69,7 +69,7 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">N° Facturas Mes</span>
-                    <span class="info-box-number"></span>
+                    <span class="info-box-number">{{$num_fac}}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>

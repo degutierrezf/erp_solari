@@ -6,7 +6,7 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>ERP</b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>ERP</b> V1.0</span>
+        <span class="logo-lg"><b>ERP</b> V1.1</span>
     </a>
 
     <!-- Header Navbar -->
@@ -31,41 +31,16 @@
                     <!-- User Account Menu -->
                     <li class="dropdown user user-menu">
                         <!-- Menu Toggle Button -->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <!-- The user image in the navbar-->
-                            <img src="" class="user-image" alt="User Image"/>
-                            <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">{{ Auth::user()->name }}</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <!-- The user image in the menu -->
-                            <li class="user-header">
-                                <img src="" class="img-circle" alt="User Image" />
-                                <p>
-                                    {{ Auth::user()->name }}
-                                    <small>{{ trans('adminlte_lang::message.login') }} Nov. 2012</small>
-                                </p>
-                            </li>
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="{{ url('/settings') }}" class="btn btn-default btn-flat">{{ trans('adminlte_lang::message.profile') }}</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="{{ url('/logout') }}" class="btn btn-default btn-flat"
-                                       onclick="event.preventDefault();
+                            <span class="hidden-xs">
+                            <a href="{{ url('/logout') }}" class="btn-warning btn-xs"
+                               onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                        Cerrar Sesión
-                                    </a>
-
-                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                        <input type="submit" value="logout" style="display: none;">
-                                    </form>
-
-                                </div>
-                            </li>
-                        </ul>
+                                Cerrar Sesión
+                            </a></span>
+                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                            <input type="submit" value="logout" style="display: none;">
+                        </form>
                     </li>
                 @endif
 

@@ -14,9 +14,9 @@
     ]) !!};
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
-<script src="https://almsaeedstudio.com/themes/AdminLTE/bootstrap/js/bootstrap.js"></script>
-<script src="https://almsaeedstudio.com/themes/AdminLTE/plugins/datatables/jquery.dataTables.js"></script>
-<script src="https://almsaeedstudio.com/themes/AdminLTE/plugins/datatables/dataTables.bootstrap.js"></script>
+<script src="https://adminlte.io/themes/AdminLTE/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="https://adminlte.io/themes/AdminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="https://adminlte.io/themes/AdminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 <script>
     $(document).ready(function () {
@@ -78,9 +78,41 @@
         $("#iva").change(function(){
             var neto = ($("#neto").val());
             var iva = ($("#iva").val());
-            var total = parseInt(neto) + parseInt(iva);
+            var otro_imp = ($("#otro_impuesto").val());
+            var total = parseInt(neto) + parseInt(iva) + parseInt(otro_imp);
             $("#total").val(total);
         });
 
+            $("#otro_impuesto").change(function(){
+                var neto = ($("#neto").val());
+                var iva = ($("#iva").val());
+                var otro_imp = ($("#otro_impuesto").val());
+                var total = parseInt(neto) + parseInt(iva) + parseInt(otro_imp);
+                $("#total").val(total);
+            });
+
+    });
+
+    $(document).on('click', '#btn_mod_prov_cli',function (e) {
+
+        $(".btn_mod_prov_cli").click(function () {
+            $("#mod_prov_cli").modal("show");
+
+            $("#rut").val($(this).closest('tr').children()[0].textContent);
+            $("#razon").val($(this).closest('tr').children()[1].textContent);
+            $("#giro").val($(this).closest('tr').children()[2].textContent);
+            $("#fono").val($(this).closest('tr').children()[3].textContent);
+            $("#mail").val($(this).closest('tr').children()[4].textContent);
+
+        });
+    });
+
+    $(document).on('click', '#btn_del_prov_cli',function (e) {
+
+        $(".btn_del_prov_cli").click(function () {
+            $("#del_prov_cli").modal("show");
+
+            $("#rut_del").val($(this).closest('tr').children()[0].textContent);
+        });
     });
 </script>

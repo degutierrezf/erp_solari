@@ -94,7 +94,6 @@
                     <th>TIPO</th>
                     <th>MONTO FACTURADO</th>
                     <th>MONTO PAGADO</th>
-                    <th>ACCIONES</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -107,7 +106,6 @@
                         <td>{{  $d_r -> tipo_documento }}</td>
                         <td>$ {{  number_format($d_r -> total,0,',','.') }}</td>
                         <td>$ {{  number_format($d_r -> pagado,0,',','.') }}</td>
-                        <td></td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -120,7 +118,6 @@
                     <th>TIPO</th>
                     <th>MONTO FACTURADO</th>
                     <th>MONTO PAGADO</th>
-                    <th>ACCIONES</th>
                 </tr>
                 </tfoot>
             </table>

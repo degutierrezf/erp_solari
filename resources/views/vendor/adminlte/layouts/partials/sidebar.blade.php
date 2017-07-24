@@ -66,7 +66,6 @@
                 <a href="#"><i class='fa fa-gear'></i> <span>Configuración</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="/password/reset">Cambio de Clave</a></li>
-                    <li><a href="#">Modificar IVA</a></li>
                 </ul>
             </li>
         </ul><!-- /.sidebar-menu -->

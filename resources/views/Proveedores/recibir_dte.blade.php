@@ -25,8 +25,8 @@
                 <span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Total Emitido Año</span>
-                    <span class="info-box-number"></span>
+                    <span class="info-box-text">Total Recibido Año</span>
+                    <span class="info-box-number">$ {{number_format($total_a,0,',','.')}}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -38,8 +38,8 @@
                 <span class="info-box-icon bg-yellow"><i class="fa fa-dollar"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Total Emitido Mes</span>
-                    <span class="info-box-number"></span>
+                    <span class="info-box-text">Total Recibido Mes</span>
+                    <span class="info-box-number">$ {{number_format($total_m,0,',','.')}}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -56,7 +56,7 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">Total IVA Mes</span>
-                    <span class="info-box-number"></span>
+                    <span class="info-box-number">$ {{number_format($total_i,0,',','.')}}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -69,7 +69,7 @@
 
                 <div class="info-box-content">
                     <span class="info-box-text">N° Facturas Mes</span>
-                    <span class="info-box-number"></span>
+                    <span class="info-box-number">{{ $num_fac }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -140,11 +140,20 @@
                                         title="Agregar DTE">
                                     <i class="fa fa-plus"></i>
                                 </button>
-                                &nbsp &nbsp &nbsp
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="tooltip"
-                                        title="Ver DTE por Proveedor">
-                                    <i class="fa fa-eye"></i>
-                                </button>
+                                <form class="" name="form" action="{{ url('FichaDTE') }}" role="form"
+                                      method="POST" enctype="multipart/form-data">
+
+                                    <div class="">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input class="form-control pull-right" id="id" type="hidden" name="id" value="{{  $pro -> id_proveedor }}">
+                                        <input class="form-control pull-right" id="tipo" type="hidden" name="tipo" value="2">
+                                    </div>
+                                    <div class="">
+                                        <button type="submit" class="btn-xs btn-primary">
+                                            <i class="fa fa-eye "></i>
+                                        </button>
+                                    </div>
+                                </form>
                             </center>
                         </td>
                     </tr>
@@ -216,6 +225,17 @@
                                 <label for="exampleInputEmail1" class="col-sm-1 control-label">$ IVA</label>
                                 <div class="col-sm-4">
                                     <input class="form-control pull-right" id="iva" type="number" min="0" name="iva" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="col-sm-3 control-label"></label>
+                                <div class="col-sm-2">
+
+                                </div>
+                                <label for="exampleInputEmail1" class="col-sm-3 control-label">$ Otro Impuesto</label>
+                                <div class="col-sm-4">
+                                    <input class="form-control pull-right" id="otro_impuesto" type="number" min="0" name="otro_impuesto" required>
                                 </div>
                             </div>
 

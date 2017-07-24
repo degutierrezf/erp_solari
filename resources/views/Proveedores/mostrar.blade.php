@@ -125,12 +125,12 @@
                             </center>
                         <td>
                             <center>
-                                <button type="button" class="btn btn-warning btn-xs" data-toggle="tooltip"
-                                        title="Editar">
+                                <button id="btn_mod_prov_cli" type="button" class="btn btn-warning btn-xs btn_mod_prov_cli" data-toggle="tooltip"
+                                        title="Modificar">
                                     <i class="fa fa-pencil"></i>
                                 </button>
                                 &nbsp &nbsp &nbsp
-                                <button type="button" class="btn btn-danger btn-xs" data-toggle="tooltip"
+                                <button id="btn_del_prov_cli" type="button" class="btn btn-danger btn-xs btn_del_prov_cli" data-toggle="tooltip"
                                         title="Eliminar">
                                     <i class="fa fa-close"></i>
                                 </button>
@@ -153,6 +153,128 @@
             </table>
         </div>
         <!-- /.box-body -->
+    </div>
+
+    <div class="modal fade" id="mod_prov_cli"
+         tabindex="-1" role="dialog"
+         aria-labelledby="favoritesModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"
+                        id="favoritesModalLabel">Modificar Datos del Proveedor </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" name="form" action="{{ url('Proveedores/Modificar') }}" role="form"
+                          method="POST" enctype="multipart/form-data">
+
+                        <div class="box-body">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input class="form-control pull-right" id="id" type="hidden" name="id">
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="col-sm-3 control-label">RUT:</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control pull-right" id="rut" type="text" name="rut"
+                                           readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="col-sm-3 control-label">Proveedor:</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control pull-right" id="razon" type="text" name="razon">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="col-sm-3 control-label">Giro:</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control pull-right" id="giro" type="text" name="giro">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="col-sm-3 control-label">Teléfono</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control pull-right"  min="0" id="fono" type="number" name="fono">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="col-sm-3 control-label">Correo Electrónico</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control pull-right" id="mail" type="email" name="mail">
+                                </div>
+                            </div>
+
+                        </div><!-- /.box-body -->
+
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+                                <i class="fa fa-remove "></i> Cancelar
+                            </button>
+
+
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa fa-check "></i> Modificar Proveedor
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="del_prov_cli"
+         tabindex="-1" role="dialog"
+         aria-labelledby="favoritesModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"
+                        id="favoritesModalLabel">Eliminar Proveedor </h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" name="form" action="{{ url('Proveedores/Eliminar') }}" role="form"
+                          method="POST" enctype="multipart/form-data">
+
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="col-sm-3 control-label">RUT:</label>
+                            <div class="col-sm-9">
+                                <input class="form-control pull-right" id="rut_del" type="text" name="rut_del"
+                                       readonly>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+                                <i class="fa fa-remove "></i> Cancelar
+                            </button>
+
+
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa fa-check "></i> Eliminar
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection

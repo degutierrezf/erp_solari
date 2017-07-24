@@ -85,8 +85,6 @@
                     <th>FECHA COBRO</th>
                     <th>FORMA DE PAGO</th>
                     <th>PLAZA</th>
-                    <th>ESTADO</th>
-                    <th>ACCIONES</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -98,8 +96,6 @@
                         <td>{{ $dte -> fecha_cobro }}</td>
                         <td>{{ $dte -> tipos_docs_pago }}</td>
                         <td>{{ $dte -> plaza }}</td>
-                        <td>--</td>
-                        <td>--</td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -111,8 +107,6 @@
                     <th>FECHA COBRO</th>
                     <th>FORMA DE PAGO</th>
                     <th>PLAZA</th>
-                    <th>ESTADO</th>
-                    <th>ACCIONES</th>
                 </tr>
                 </tfoot>
             </table>

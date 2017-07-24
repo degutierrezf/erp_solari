@@ -99,11 +99,27 @@ class ClientesController extends Controller
     {
         $tipodoc = DB::table('tipos_documento')->get();
 
-        $clientes = Clientes::get();
+        $clientes = Clientes::where('estado','<>',2)->get();
         $activos = Clientes::where('estado', 1)->count();
         $inactivos = Clientes::where('estado', 2)->count();
         $otros = Clientes::where('estado', 3)->count();
         $total = Clientes::count();
+
+        $total_a = DB::table('dte_emitidos')
+            ->whereYear('fecha', date("Y"))
+            ->sum('neto_doc');
+
+        $total_m = DB::table('dte_emitidos')
+            ->whereMonth('fecha', date("m"))
+            ->sum('neto_doc');
+
+        $total_i = DB::table('dte_emitidos')
+            ->whereMonth('fecha', date("m"))
+            ->sum('iva');
+
+        $num_fac = DB::table('dte_emitidos')
+            ->whereMonth('fecha', date("m"))
+            ->count('id_dte_e');
 
         return view('Clientes.emitir_dte', [
             'clientes' => $clientes,
@@ -111,6 +127,10 @@ class ClientesController extends Controller
             'ina' => $inactivos,
             'otros' => $otros,
             'total' => $total,
+            'total_a' => $total_a,
+            'total_m' => $total_m,
+            'total_i' => $total_i,
+            'num_fac' => $num_fac,
             'tipo_doc' => $tipodoc,
         ]);
     }
@@ -118,16 +138,72 @@ class ClientesController extends Controller
     public function revisar_dte()
     {
 
+        $total_a = DB::table('dte_emitidos')
+            ->whereYear('fecha', date("Y"))
+            ->sum('neto_doc');
+
+        $total_m = DB::table('dte_emitidos')
+            ->whereMonth('fecha', date("m"))
+            ->sum('neto_doc');
+
+        $total_i = DB::table('dte_emitidos')
+            ->whereMonth('fecha', date("m"))
+            ->sum('iva');
+
+        $num_fac = DB::table('dte_emitidos')
+            ->whereMonth('fecha', date("m"))
+            ->count('id_dte_e');
+
         $tipo_pag = DB::table('tipos_docs_pago')->get();
         $bancos = DB::table('bancos')->get();
 
         $dte_e = DTE_E::join('clientes','clientes_id_cliente','=','id_cliente')
+            ->whereColumn('total','<>', 'pagado')
             ->get();
 
         return view('Clientes.revisar_dte', [
             'dte_e' => $dte_e,
             'tipo_pg' => $tipo_pag,
-            'bancos' => $bancos
+            'bancos' => $bancos,
+            'total_a' => $total_a,
+            'total_m' => $total_m,
+            'total_i' => $total_i,
+            'num_fac' => $num_fac
         ]);
     }
+
+    public function Modificar()
+    {
+
+        $id = $_POST['rut'];
+        $nombre = $_POST['razon'];
+        $giro = $_POST['giro'];
+        $fono = $_POST['fono'];
+        $mail = $_POST['mail'];
+
+        DB::table('clientes')
+            ->where('rut', $id)
+            ->update([
+                'rsocial' => $nombre,
+                'giro' => $giro,
+                'telefono' => $fono,
+                'mail' => $mail
+            ]);
+
+        return back();
+
+    }
+
+    public function Eliminar()
+    {
+
+        $id = $_POST['rut_del'];
+
+        DB::table('clientes')
+            ->where('rut', $id)
+            ->update(['estado' => 2]);
+
+        return back();
+    }
+
 }
