@@ -62,8 +62,16 @@
         </div>
 
         <div class="col-md-2">
-            <a class="btn btn-app btn" href="/Clientes/Listar">
-                <i class="fa fa-list-ul"></i> Ver lista de Clientes
+            <a class="col-sm-10 btn btn-app btn" href="/Clientes">
+                <i class="fa fa-user-plus"></i> Nuevo Cliente
+            </a>
+
+            <a class="col-sm-10 btn btn-app btn" href="/Clientes/Listar">
+                <i class="fa fa-users"></i> Ver lista de Clientes
+            </a>
+
+            <a class="col-sm-10 btn btn-app btn" href="/Clientes/DTE">
+                <i class="fa fa-plus"></i> Crear Factura
             </a>
         </div>
     </div>
