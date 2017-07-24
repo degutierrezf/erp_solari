@@ -52,6 +52,8 @@ Route::get('Informes/PagosRealizados', 'InformesController@pagos_r');
 Route::get('Informes/PagosRecibidos', 'InformesController@pagos_e');
 Route::get('Informes/Pagos_Realizar_Pendientes', 'InformesController@pagos_r_pend');
 Route::get('Informes/Pagos_Recibir_Pendientes', 'InformesController@pagos_e_pend');
+Route::get('Informes/Clientes', 'InformesController@info_cli');
+Route::post('Informes/Generar', 'InformesController@generar');
 
 //FICHA DTE
 Route::post('FichaDTE', 'dteController@FichaDTE');

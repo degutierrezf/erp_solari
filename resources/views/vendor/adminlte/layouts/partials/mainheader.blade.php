@@ -6,7 +6,7 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>ERP</b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>ERP</b> V1.1</span>
+        <span class="logo-lg"><b>ERP</b> V1.2</span>
     </a>
 
     <!-- Header Navbar -->

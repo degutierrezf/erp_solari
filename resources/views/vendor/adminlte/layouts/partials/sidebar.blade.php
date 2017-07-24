@@ -41,6 +41,7 @@
                 <a href="#"><i class='fa fa-dollar'></i> <span>De Clientes</span> <i class="fa fa-angle-right pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="/Clientes/DTE">Registrar Factura</a></li>
+                    <li><a href="/Clientes/NC">Registrar Nota Crédito</a></li>
                     <li><a href="/Clientes/DTEs">Registar Pago de Factura</a></li>
                 </ul>
             </li>
@@ -48,6 +49,7 @@
                 <a href="#"><i class='fa fa-dollar'></i> <span>A Proveedores</span> <i class="fa fa-angle-right pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="/Proveedores/DTE">Registrar Factura</a></li>
+                    <li><a href="/Proveedores/NC">Registrar Nota Crédito</a></li>
                     <li><a href="/Proveedores/DTEs">Registar Pago de Factura</a></li>
                 </ul>
             </li>
@@ -59,6 +61,7 @@
                     <li><a href="/Informes/PagosRecibidos">Pagos Recibidos</a></li>
                     <li><a href="/Informes/Pagos_Realizar_Pendientes">Pagos Pendientes de Hacer</a></li>
                     <li><a href="/Informes/Pagos_Recibir_Pendientes">Pagos Pendientes de Recibir</a></li>
+                    <li><a href="/Informes/Clientes">Informe por Cliente</a></li>
                 </ul>
             </li>
             <li class="header">SISTEMA</li>

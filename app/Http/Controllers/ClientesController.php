@@ -157,8 +157,9 @@ class ClientesController extends Controller
         $tipo_pag = DB::table('tipos_docs_pago')->get();
         $bancos = DB::table('bancos')->get();
 
-        $dte_e = DTE_E::join('clientes','clientes_id_cliente','=','id_cliente')
-            ->whereColumn('total','<>', 'pagado')
+        $dte_e = DB::table('dte_emitidos')
+            ->whereColumn('dte_emitidos.total','>', 'dte_emitidos.pagado')
+            ->join('clientes','clientes_id_cliente','=','id_cliente')
             ->get();
 
         return view('Clientes.revisar_dte', [

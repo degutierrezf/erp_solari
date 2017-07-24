@@ -71,4 +71,68 @@ class InformesController extends Controller
             'dte_e'=>$dte_e
         ]);
     }
+
+    public function info_cli(){
+
+        $cli = DB::table('clientes')
+                ->get();
+
+        return view('Informes.informe_cliente', [
+            'cli' => $cli
+        ]);
+    }
+
+    public function generar(){
+
+        $nom_cli = DB::table('clientes')
+            ->get();
+        $f_ini = $_POST['f_ini'];
+        $f_fin = $_POST['f_fin'];
+        $cli = $_POST['cliente'];
+
+        $res = DB::table('dte_emitidos')
+            ->join('clientes','id_cliente','=','clientes_id_cliente')
+            ->where('clientes_id_cliente', $cli)
+            ->wheredate('fecha','>=',$f_ini.' 00:00:00')
+            ->wheredate('fecha','<=',$f_fin.' 00:00:00')
+            ->get();
+
+        $total_n = DB::table('dte_emitidos')
+            ->join('clientes','id_cliente','=','clientes_id_cliente')
+            ->where('clientes_id_cliente', $cli)
+            ->wheredate('fecha','>=',$f_ini.' 00:00:00')
+            ->wheredate('fecha','<=',$f_fin.' 00:00:00')
+            ->sum('neto_doc');
+
+        $total_i = DB::table('dte_emitidos')
+            ->join('clientes','id_cliente','=','clientes_id_cliente')
+            ->where('clientes_id_cliente', $cli)
+            ->wheredate('fecha','>=',$f_ini.' 00:00:00')
+            ->wheredate('fecha','<=',$f_fin.' 00:00:00')
+            ->sum('iva');
+
+        $total_t = DB::table('dte_emitidos')
+            ->join('clientes','id_cliente','=','clientes_id_cliente')
+            ->where('clientes_id_cliente', $cli)
+            ->wheredate('fecha','>=',$f_ini.' 00:00:00')
+            ->wheredate('fecha','<=',$f_fin.' 00:00:00')
+            ->sum('total');
+
+        $num_doc = DB::table('dte_emitidos')
+            ->join('clientes','id_cliente','=','clientes_id_cliente')
+            ->where('clientes_id_cliente', $cli)
+            ->wheredate('fecha','>=',$f_ini.' 00:00:00')
+            ->wheredate('fecha','<=',$f_fin.' 00:00:00')
+            ->count();
+
+
+        return view('Informes.informe_clientes', [
+            'informe'=>$res,
+            'total_n' => $total_n,
+            'total_i' => $total_i,
+            'total_t' => $total_t,
+            'num_doc' => $num_doc,
+            'cli' => $nom_cli
+        ]);
+    }
 }
